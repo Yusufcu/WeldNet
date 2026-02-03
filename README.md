@@ -194,16 +194,19 @@ WeldNet/
 
 ## Citation
 
-If you use WeldNet in your research, please cite:
+If you use WeldNet in your research, please consider citing this repository:
 
 ```bibtex
-@article{weldnet2024,
+@software{weldnet2024,
   title={WeldNet: A Lightweight Deep Learning Model for Welding Defect Detection},
-  author={Your Name},
-  journal={Journal Name},
-  year={2024}
+  author={WeldNet Contributors},
+  year={2024},
+  url={https://github.com/Yusufcu/WeldNet}
 }
 ```
+
+For the original research on lightweight CNNs for welding defect detection, see:
+- [WeldNet: a lightweight deep learning model for welding defect recognition](https://link.springer.com/article/10.1007/s40194-024-01759-9)
 
 ## License
 
