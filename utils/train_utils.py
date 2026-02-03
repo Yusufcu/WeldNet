@@ -4,6 +4,7 @@ Training utilities for WeldNet
 This module provides helper functions for training and evaluation.
 """
 
+import copy
 import torch
 import torch.nn as nn
 from tqdm import tqdm
@@ -263,7 +264,7 @@ class EarlyStopping:
     def __call__(self, val_loss, model):
         if self.best_loss is None:
             self.best_loss = val_loss
-            self.best_model = model.state_dict().copy()
+            self.best_model = copy.deepcopy(model.state_dict())
         elif val_loss > self.best_loss - self.min_delta:
             self.counter += 1
             if self.counter >= self.patience:
@@ -272,5 +273,5 @@ class EarlyStopping:
                     model.load_state_dict(self.best_model)
         else:
             self.best_loss = val_loss
-            self.best_model = model.state_dict().copy()
+            self.best_model = copy.deepcopy(model.state_dict())
             self.counter = 0
