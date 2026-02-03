@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeldNet Demo - Try It Now</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 WeldNet</h1>
+            <p class="subtitle">Lightweight Deep Learning for Welding Defect Detection</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="demo.html" class="active">Demo</a>
+            <a href="documentation.html">Documentation</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <main>
+            <section class="demo-section">
+                <h2>Interactive Demo</h2>
+                <p class="demo-description">Upload a welding image to detect defects using WeldNet</p>
+
+                <div class="demo-container">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content">
+                            <div class="upload-icon">📁</div>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-hint">Supports: JPG, PNG, BMP (Max 10MB)</p>
+                            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+
+                    <div class="model-selector">
+                        <label for="modelSelect">Select Model Variant:</label>
+                        <select id="modelSelect">
+                            <option value="small">WeldNet-Small (Fast)</option>
+                            <option value="standard" selected>WeldNet-Standard (Balanced)</option>
+                            <option value="large">WeldNet-Large (Accurate)</option>
+                        </select>
+                    </div>
+
+                    <div id="imagePreview" class="image-preview" style="display: none;">
+                        <h3>Uploaded Image</h3>
+                        <img id="previewImg" src="" alt="Preview">
+                    </div>
+
+                    <button id="analyzeBtn" class="btn btn-primary btn-large" disabled>
+                        Analyze Image
+                    </button>
+
+                    <div id="loadingIndicator" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Analyzing image...</p>
+                    </div>
+
+                    <div id="results" class="results" style="display: none;">
+                        <h3>Detection Results</h3>
+                        <div class="result-card">
+                            <div class="result-main">
+                                <div class="result-icon" id="resultIcon">🔍</div>
+                                <div class="result-info">
+                                    <h4 id="resultClass">Defect Type</h4>
+                                    <p id="resultConfidence">Confidence: 95%</p>
+                                </div>
+                            </div>
+                            <div class="result-details">
+                                <h5>All Probabilities:</h5>
+                                <div id="probabilitiesList" class="probabilities-list">
+                                    <!-- Will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        <button id="tryAnotherBtn" class="btn btn-secondary">
+                            Try Another Image
+                        </button>
+                    </div>
+                </div>
+
+                <div class="demo-note">
+                    <h4>⚠️ Note</h4>
+                    <p>This is a demonstration interface. For production use, please use the Python API or deploy the model using the provided scripts.</p>
+                    <p>To run inference locally:</p>
+                    <div class="code-block-small">
+                        <pre><code>python inference.py --model_path model.pth --input image.jpg</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="examples">
+                <h3>Example Images</h3>
+                <p>Try these example welding images:</p>
+                <div class="example-grid">
+                    <div class="example-item">
+                        <div class="example-placeholder">
+                            <span>Good Weld</span>
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-placeholder">
+                            <span>Crack Defect</span>
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-placeholder">
+                            <span>Porosity</span>
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-placeholder">
+                            <span>Slag Inclusion</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 WeldNet Contributors | Licensed under MIT</p>
+            <p>
+                <a href="https://github.com/Yusufcu/WeldNet">GitHub</a> |
+                <a href="documentation.html">Documentation</a> |
+                <a href="about.html">About</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="../static/js/demo.js"></script>
+</body>
+</html>

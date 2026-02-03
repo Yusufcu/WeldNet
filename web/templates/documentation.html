@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeldNet Documentation</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 WeldNet</h1>
+            <p class="subtitle">Lightweight Deep Learning for Welding Defect Detection</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="demo.html">Demo</a>
+            <a href="documentation.html" class="active">Documentation</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <main>
+            <section class="documentation">
+                <h2>Documentation</h2>
+                
+                <div class="doc-nav">
+                    <h3>Contents</h3>
+                    <ul>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#dataset">Dataset Preparation</a></li>
+                        <li><a href="#training">Training</a></li>
+                        <li><a href="#inference">Inference</a></li>
+                        <li><a href="#api">API Reference</a></li>
+                    </ul>
+                </div>
+
+                <div id="installation" class="doc-section">
+                    <h3>Installation</h3>
+                    <p>Install WeldNet and its dependencies:</p>
+                    <div class="code-block">
+                        <pre><code># Clone the repository
+git clone https://github.com/Yusufcu/WeldNet.git
+cd WeldNet
+
+# Install dependencies
+pip install -r requirements.txt</code></pre>
+                    </div>
+                    <h4>Requirements</h4>
+                    <ul>
+                        <li>Python 3.8+</li>
+                        <li>PyTorch 2.0+</li>
+                        <li>CUDA (optional, for GPU acceleration)</li>
+                    </ul>
+                </div>
+
+                <div id="dataset" class="doc-section">
+                    <h3>Dataset Preparation</h3>
+                    <p>Organize your dataset in the following structure:</p>
+                    <div class="code-block">
+                        <pre><code>data/
+├── train/
+│   ├── good/
+│   │   ├── img1.jpg
+│   │   └── img2.jpg
+│   ├── crack/
+│   ├── porosity/
+│   └── ...
+└── val/
+    ├── good/
+    ├── crack/
+    └── ...</code></pre>
+                    </div>
+                    <p>Each subdirectory represents a defect class.</p>
+                </div>
+
+                <div id="training" class="doc-section">
+                    <h3>Training</h3>
+                    <p>Train a WeldNet model on your dataset:</p>
+                    <div class="code-block">
+                        <pre><code>python train.py \
+    --train_dir data/train \
+    --val_dir data/val \
+    --model_type weldnet \
+    --batch_size 32 \
+    --epochs 100 \
+    --lr 0.001 \
+    --output_dir outputs</code></pre>
+                    </div>
+                    
+                    <h4>Training Arguments</h4>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Argument</th>
+                                <th>Description</th>
+                                <th>Default</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>--train_dir</code></td>
+                                <td>Path to training data directory</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>--val_dir</code></td>
+                                <td>Path to validation data directory</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>--model_type</code></td>
+                                <td>Model variant (weldnet, weldnet_small, weldnet_large)</td>
+                                <td>weldnet</td>
+                            </tr>
+                            <tr>
+                                <td><code>--batch_size</code></td>
+                                <td>Batch size for training</td>
+                                <td>32</td>
+                            </tr>
+                            <tr>
+                                <td><code>--epochs</code></td>
+                                <td>Number of training epochs</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td><code>--lr</code></td>
+                                <td>Learning rate</td>
+                                <td>0.001</td>
+                            </tr>
+                            <tr>
+                                <td><code>--optimizer</code></td>
+                                <td>Optimizer (adam, sgd, adamw)</td>
+                                <td>adam</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="inference" class="doc-section">
+                    <h3>Inference</h3>
+                    
+                    <h4>Single Image</h4>
+                    <div class="code-block">
+                        <pre><code>python inference.py \
+    --model_path outputs/best_model.pth \
+    --input path/to/image.jpg \
+    --class_names good,crack,porosity,slag,lack_of_fusion,undercut \
+    --verbose</code></pre>
+                    </div>
+                    
+                    <h4>Batch Inference</h4>
+                    <div class="code-block">
+                        <pre><code>python inference.py \
+    --model_path outputs/best_model.pth \
+    --input path/to/images/ \
+    --class_names good,crack,porosity,slag,lack_of_fusion,undercut \
+    --output results.csv</code></pre>
+                    </div>
+                </div>
+
+                <div id="api" class="doc-section">
+                    <h3>API Reference</h3>
+                    
+                    <h4>Model Creation</h4>
+                    <div class="code-block">
+                        <pre><code>from nets import weldnet, weldnet_small, weldnet_large
+
+# Create standard model
+model = weldnet(num_classes=6, in_channels=3)
+
+# Create small model (faster)
+model_small = weldnet_small(num_classes=6)
+
+# Create large model (more accurate)
+model_large = weldnet_large(num_classes=6)</code></pre>
+                    </div>
+                    
+                    <h4>Dataset Loading</h4>
+                    <div class="code-block">
+                        <pre><code>from utils import create_dataloaders
+
+train_loader, val_loader, num_classes, class_names = create_dataloaders(
+    train_dir='data/train',
+    val_dir='data/val',
+    batch_size=32,
+    input_size=224,
+    num_workers=4
+)</code></pre>
+                    </div>
+                    
+                    <h4>Training Loop</h4>
+                    <div class="code-block">
+                        <pre><code>from utils import train_one_epoch, evaluate
+import torch.nn as nn
+import torch.optim as optim
+
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+for epoch in range(epochs):
+    train_loss, train_acc = train_one_epoch(
+        model, train_loader, criterion, optimizer, device, epoch
+    )
+    val_loss, val_acc, preds, labels = evaluate(
+        model, val_loader, criterion, device
+    )</code></pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 WeldNet Contributors | Licensed under MIT</p>
+            <p>
+                <a href="https://github.com/Yusufcu/WeldNet">GitHub</a> |
+                <a href="documentation.html">Documentation</a> |
+                <a href="about.html">About</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
