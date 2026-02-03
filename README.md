@@ -159,6 +159,23 @@ The model outputs include:
 - **Classification Report**: Precision, recall, and F1-score for each class
 - **Model Checkpoints**: Saved model weights at best and final epochs
 
+## Web Interface
+
+WeldNet includes a web-based interface for easy demonstration and documentation:
+
+```bash
+cd web/templates
+python -m http.server 8000
+```
+
+Then open http://localhost:8000 in your browser to access:
+- Interactive demo with image upload
+- Complete documentation
+- Model comparison and specifications
+- Usage examples
+
+See `web/README.md` for more details on the web interface.
+
 ## Project Structure
 
 ```
@@ -170,6 +187,10 @@ WeldNet/
 │   ├── __init__.py
 │   ├── dataset.py          # Dataset loading and preprocessing
 │   └── train_utils.py      # Training utilities
+├── web/                    # Web interface
+│   ├── templates/          # HTML pages
+│   ├── static/            # CSS and JavaScript
+│   └── README.md          # Web interface docs
 ├── data/                   # Dataset directory
 ├── examples/               # Example scripts and notebooks
 ├── train.py               # Training script

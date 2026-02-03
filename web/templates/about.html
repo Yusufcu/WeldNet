@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About WeldNet</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 WeldNet</h1>
+            <p class="subtitle">Lightweight Deep Learning for Welding Defect Detection</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="demo.html">Demo</a>
+            <a href="documentation.html">Documentation</a>
+            <a href="about.html" class="active">About</a>
+        </nav>
+
+        <main>
+            <section class="about-section">
+                <h2>About WeldNet</h2>
+                
+                <div class="about-content">
+                    <h3>Project Overview</h3>
+                    <p>WeldNet is an open-source deep learning framework designed specifically for automated detection and classification of welding defects in industrial applications. The project aims to provide an accessible, efficient, and accurate solution for quality control in welding processes.</p>
+                    
+                    <h3>Why WeldNet?</h3>
+                    <p>Traditional welding inspection methods face several challenges:</p>
+                    <ul>
+                        <li><strong>Manual Inspection:</strong> Time-consuming, subjective, and requires skilled inspectors</li>
+                        <li><strong>X-ray/Ultrasonic Testing:</strong> Expensive equipment and specialized training required</li>
+                        <li><strong>Inconsistency:</strong> Human fatigue and subjectivity lead to variable results</li>
+                        <li><strong>Scalability:</strong> Difficult to inspect large volumes efficiently</li>
+                    </ul>
+                    
+                    <p>WeldNet addresses these challenges by providing:</p>
+                    <ul>
+                        <li>Automated, consistent defect detection</li>
+                        <li>Real-time processing capability</li>
+                        <li>Reduced dependency on specialized equipment</li>
+                        <li>Scalable solution for high-volume inspection</li>
+                    </ul>
+                    
+                    <h3>Architecture Highlights</h3>
+                    <div class="architecture-features">
+                        <div class="arch-feature">
+                            <h4>Depthwise Separable Convolutions</h4>
+                            <p>Reduces model parameters while maintaining performance, enabling faster inference and deployment on edge devices.</p>
+                        </div>
+                        <div class="arch-feature">
+                            <h4>Attention Mechanisms</h4>
+                            <p>Improves the model's ability to focus on relevant features and defect patterns in welding images.</p>
+                        </div>
+                        <div class="arch-feature">
+                            <h4>Residual Connections</h4>
+                            <p>Enables training of deeper networks and improves gradient flow for better convergence.</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Technical Specifications</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Model Variant</th>
+                            <th>Parameters</th>
+                            <th>Inference Time (CPU)</th>
+                            <th>Model Size</th>
+                        </tr>
+                        <tr>
+                            <td>WeldNet-Small</td>
+                            <td>~103K</td>
+                            <td>~11.9ms</td>
+                            <td>0.4 MB</td>
+                        </tr>
+                        <tr>
+                            <td>WeldNet-Standard</td>
+                            <td>~391K</td>
+                            <td>~20.9ms</td>
+                            <td>1.5 MB</td>
+                        </tr>
+                        <tr>
+                            <td>WeldNet-Large</td>
+                            <td>~863K</td>
+                            <td>~30.7ms</td>
+                            <td>3.3 MB</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>Research Background</h3>
+                    <p>WeldNet is inspired by recent advances in lightweight deep learning architectures for industrial inspection. The model draws from research on:</p>
+                    <ul>
+                        <li>MobileNets and efficient CNN architectures</li>
+                        <li>Attention mechanisms in computer vision</li>
+                        <li>Domain-specific optimization for defect detection</li>
+                        <li>Knowledge distillation and model compression</li>
+                    </ul>
+                    
+                    <h3>Use Cases</h3>
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <h4>🏭 Manufacturing Quality Control</h4>
+                            <p>Automated inspection on production lines for consistent quality assurance</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>🚢 Shipbuilding & Marine</h4>
+                            <p>Inspection of critical welds in ship construction and maritime operations</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>✈️ Aerospace</h4>
+                            <p>High-reliability defect detection for safety-critical components</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>🏗️ Construction & Infrastructure</h4>
+                            <p>Pipeline, bridge, and structural weld inspection</p>
+                        </div>
+                    </div>
+                    
+                    <h3>License & Contributing</h3>
+                    <p>WeldNet is released under the MIT License, making it free for both research and commercial use. We welcome contributions from the community!</p>
+                    
+                    <div class="contribute-box">
+                        <h4>How to Contribute</h4>
+                        <ul>
+                            <li>Report bugs and issues on GitHub</li>
+                            <li>Submit pull requests with improvements</li>
+                            <li>Share your trained models and datasets</li>
+                            <li>Improve documentation and examples</li>
+                        </ul>
+                        <a href="https://github.com/Yusufcu/WeldNet" class="btn btn-primary">Contribute on GitHub</a>
+                    </div>
+                    
+                    <h3>Citation</h3>
+                    <p>If you use WeldNet in your research, please cite:</p>
+                    <div class="code-block">
+                        <pre><code>@software{weldnet2024,
+  title={WeldNet: A Lightweight Deep Learning Model for Welding Defect Detection},
+  author={WeldNet Contributors},
+  year={2024},
+  url={https://github.com/Yusufcu/WeldNet}
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 WeldNet Contributors | Licensed under MIT</p>
+            <p>
+                <a href="https://github.com/Yusufcu/WeldNet">GitHub</a> |
+                <a href="documentation.html">Documentation</a> |
+                <a href="about.html">About</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

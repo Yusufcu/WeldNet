@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeldNet - Welding Defect Detection</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 WeldNet</h1>
+            <p class="subtitle">Lightweight Deep Learning for Welding Defect Detection</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="active">Home</a>
+            <a href="demo.html">Demo</a>
+            <a href="documentation.html">Documentation</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <main>
+            <section class="hero">
+                <h2>Automated Welding Inspection with AI</h2>
+                <p>WeldNet is a state-of-the-art deep learning model designed for accurate and efficient detection of welding defects in industrial applications.</p>
+                <div class="cta-buttons">
+                    <a href="demo.html" class="btn btn-primary">Try Demo</a>
+                    <a href="https://github.com/Yusufcu/WeldNet" class="btn btn-secondary">View on GitHub</a>
+                </div>
+            </section>
+
+            <section class="features">
+                <h3>Key Features</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h4>Lightweight Architecture</h4>
+                        <p>Significantly fewer parameters than traditional models while maintaining high accuracy</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h4>High Accuracy</h4>
+                        <p>Detects multiple defect types including cracks, porosity, slag inclusion, and more</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <h4>Real-time Performance</h4>
+                        <p>Fast inference suitable for industrial real-time applications</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h4>Attention Mechanism</h4>
+                        <p>Advanced attention modules improve feature learning and interpretability</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="defects">
+                <h3>Detectable Defects</h3>
+                <div class="defect-list">
+                    <div class="defect-item">
+                        <span class="defect-badge good">✓</span>
+                        <span>Good Welds</span>
+                    </div>
+                    <div class="defect-item">
+                        <span class="defect-badge crack">⚠</span>
+                        <span>Cracks</span>
+                    </div>
+                    <div class="defect-item">
+                        <span class="defect-badge porosity">⚠</span>
+                        <span>Porosity</span>
+                    </div>
+                    <div class="defect-item">
+                        <span class="defect-badge slag">⚠</span>
+                        <span>Slag Inclusion</span>
+                    </div>
+                    <div class="defect-item">
+                        <span class="defect-badge fusion">⚠</span>
+                        <span>Lack of Fusion</span>
+                    </div>
+                    <div class="defect-item">
+                        <span class="defect-badge undercut">⚠</span>
+                        <span>Undercut</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="model-variants">
+                <h3>Model Variants</h3>
+                <div class="variants-grid">
+                    <div class="variant-card">
+                        <h4>WeldNet-Small</h4>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <span class="stat-label">Parameters</span>
+                                <span class="stat-value">~100K</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Speed</span>
+                                <span class="stat-value">~84 FPS</span>
+                            </div>
+                        </div>
+                        <p>Optimized for edge devices and mobile deployment</p>
+                    </div>
+                    <div class="variant-card variant-featured">
+                        <div class="featured-badge">Recommended</div>
+                        <h4>WeldNet-Standard</h4>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <span class="stat-label">Parameters</span>
+                                <span class="stat-value">~390K</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Speed</span>
+                                <span class="stat-value">~48 FPS</span>
+                            </div>
+                        </div>
+                        <p>Balanced performance for general industrial applications</p>
+                    </div>
+                    <div class="variant-card">
+                        <h4>WeldNet-Large</h4>
+                        <div class="variant-stats">
+                            <div class="stat">
+                                <span class="stat-label">Parameters</span>
+                                <span class="stat-value">~860K</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Speed</span>
+                                <span class="stat-value">~33 FPS</span>
+                            </div>
+                        </div>
+                        <p>Maximum accuracy for complex defect patterns</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="getting-started">
+                <h3>Quick Start</h3>
+                <div class="code-block">
+                    <pre><code># Install dependencies
+pip install -r requirements.txt
+
+# Train a model
+python train.py \
+    --train_dir data/train \
+    --val_dir data/val \
+    --model_type weldnet \
+    --epochs 100
+
+# Run inference
+python inference.py \
+    --model_path outputs/best_model.pth \
+    --input path/to/image.jpg \
+    --class_names good,crack,porosity,slag,lack_of_fusion,undercut</code></pre>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 WeldNet Contributors | Licensed under MIT</p>
+            <p>
+                <a href="https://github.com/Yusufcu/WeldNet">GitHub</a> |
+                <a href="documentation.html">Documentation</a> |
+                <a href="about.html">About</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
